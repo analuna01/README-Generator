@@ -1,21 +1,22 @@
 const fs = require('fs');
 const util = require('util');
 const inquirer = require('inquirer');
+const { title } = require('process');
 
 const questions = [
     {
-        type:"input",
+        // type:"input",
         name: "badge",
         message: "Enter your badge code"
     },
-
+    
     {
-        type: "input",
+        // type: "input",
         name: "title",
         message: "What is the title of your project?"
     },
     {
-        type: "input",
+        // type: "input",
         name: "description",
         message: "Provide a description of your project"
     },
@@ -40,6 +41,8 @@ const questions = [
         message: "Choose a license from the following options",
         choices: [
             "MIT",
+            "Apache",
+            "Boost",
             "Unlicensed",
         ]
     },
@@ -66,30 +69,30 @@ const questions = [
 ]
 
 inquirer
-    .prompt(questions).then(response =>{
-
-        fs.appendFileSync("./example-README.md", ("\n" + response.badge) + '\n', function(error) {
-            if (error){
-                return console.log(error);
-            }
-            console.log("success!")
-        });
-
-        fs.appendFileSync("./example-README.md", ("#" + response.title) + '\n', function(error) {
-            if (error){
-                return console.log(error);
-            }
-            console.log("success!")
-        });
-
-        fs.appendFileSync("./example-README.md", ("## Description" + '\n' + response.description) + '\n', function(error) {
-            if (error){
-                return console.log(error);
-            }
-            console.log("success!")
-        });
-
-        fs.appendFileSync("./example-README.md", ("## Table of Contents" + '\n' + response.content) + '\n', function(error) {
+.prompt(questions).then(response =>{
+    
+    fs.appendFileSync("./example-README.md", (response.badge) + '\n', function(error) {
+        if (error){
+            return console.log(error);
+        }
+        console.log("success!")
+    });
+    
+    fs.appendFileSync("./example-README.md", ('\n' + "#" + response.title) + '\n', function(error) {
+        if (error){
+            return console.log(error);
+        }
+        console.log("success!")
+    });
+    
+    fs.appendFileSync("./example-README.md", ("## Description" + '\n' + response.description) + '\n', function(error) {
+        if (error){
+            return console.log(error);
+        }
+        console.log("success!")
+    });
+    
+    fs.appendFileSync("./example-README.md", ("## Table of Contents" + '\n' + response.content) + '\n', function(error) {
             if (error){
                 return console.log(error);
             }
@@ -117,7 +120,7 @@ inquirer
             console.log("success!")
         });
 
-        fs.appendFileSync("./example-README.md", ("## Contributing" + '\n' + response.contributing), function(error) {
+        fs.appendFileSync("./example-README.md", ("## Contributing" + '\n' + response.contributing) + '\n', function(error) {
             if (error){
                 return console.log(error);
             }
