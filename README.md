@@ -17,9 +17,6 @@ If you would like to contribute to this project please contact me.
 ## Tests
 Link to demo application : https://drive.google.com/file/d/14PZuO0eYl0NB4S7HSDMcbUKj5bF_7fPv/view?usp=sharing
 
-## Demo. Gif
-![viedo](/examples/README_Demo.gif)
-
 ## Questions
 https://github.com/analuna01,
 luna.ana92@gmail.com
